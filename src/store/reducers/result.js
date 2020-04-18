@@ -1,11 +1,11 @@
-import * as actionTypes from '../actions';
+import * as actionTypes from '../actions/actions';
 
 const initialState = {
     results: [],
 }
 
 const reducer = (state = initialState, action) => {
-    switch(action.type) {
+    switch (action.type) {
         case actionTypes.STORE_RESULT:
             return {
                 ...state,
@@ -21,13 +21,13 @@ const reducer = (state = initialState, action) => {
             // newArray.slice(id, 1);
             //
             // 2 way usinf filter:
-            const updatedArray = state.results.filter((result) => action.clickedId !==  result.id)
+            const updatedArray = state.results.filter((result) => action.id !== result.id)
             return {
                 ...state,
                 results: updatedArray,
             }
     }
-    
+
     return state;
 }
 
