@@ -1,6 +1,7 @@
 import * as actionTypes from './actionTypes';
 
 export const saveResult = (result) => {
+    //const updatedResult = result * 2;
     return {
         type: actionTypes.STORE_RESULT,
         result: result,
@@ -8,12 +9,14 @@ export const saveResult = (result) => {
 }
 
 export const storeResult = (result) => {
-    return dispatch => {
+    return (dispatch, getState) => {
         setTimeout( () => {
-            dispatch(saveResult(result))
+            const oldCounter = getState().counter.counter;
+            console.log(oldCounter);
+            dispatch(saveResult(result));
         }, 2000)
     }
-};
+}
 
 
 export const deleteResult = (id) => {
